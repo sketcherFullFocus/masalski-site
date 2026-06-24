@@ -1,1629 +1,877 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Masalski — Residences & Promenades</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --brick: #8B3A1A;
-  --gold: #C4923A;
-  --limestone: #F5EFE6;
-  --limestone-2: #EDE4D8;
-  --oak: #2C2118;
-  --oak-mid: #3D2E1E;
-  --mortar: #A89880;
-  --mortar-light: #C8B89A;
-  --white: #FDFAF6;
-  --text: #1C1410;
-  --text-mid: #5A4A38;
-  --text-light: #9A8878;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Masalski — Residences &amp; Promenades · Гродно</title>
+<meta name="description" content="Коммерческие помещения и апартаменты в отреставрированном доме князей Масальских (XVIII в.) в центре Гродно. Доходность 8–12% годовых, управление под ключ.">
+<meta property="og:title" content="Masalski — Residences & Promenades">
+<meta property="og:description" content="Коммерческие помещения и апартаменты в доме князей Масальских, XVIII век, центр Гродно.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2C2118">
+<style>/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/3321615d-3810-4c09-b33d-4d2d1f014032.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--white);
-  color: var(--text);
-  overflow-x: hidden;
-  cursor: none;
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/ea23f10a-3b9f-4c5d-b1cf-84982f2f4f27.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
-
-/* CUSTOM CURSOR */
-.cursor {
-  position: fixed; top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: var(--brick);
-  border-radius: 50%;
-  pointer-events: none; z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/d9db8a7a-bc43-4c9c-b7c3-37966a92a605.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
 }
-.cursor-ring {
-  position: fixed; top: 0; left: 0;
-  width: 32px; height: 32px;
-  border: 0.5px solid rgba(139,58,26,0.4);
-  border-radius: 50%;
-  pointer-events: none; z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease-out, width 0.3s, height 0.3s;
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/73f3fbbd-86ce-4624-b887-7a3e1dd40640.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-body:hover .cursor { opacity: 1; }
-
-/* NAVIGATION */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 48px;
-  height: 72px;
-  background: rgba(253,250,246,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 0.5px solid rgba(168,152,128,0.15);
-  transition: background 0.4s;
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/9b8c4e38-a73f-4de3-9799-17bf1874c2bb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
-.nav-logo {
-  display: flex; flex-direction: column; gap: 2px;
-  text-decoration: none;
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/3321615d-3810-4c09-b33d-4d2d1f014032.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
 }
-.nav-logo-main {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 300; letter-spacing: 0.22em;
-  color: var(--text); line-height: 1;
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/ea23f10a-3b9f-4c5d-b1cf-84982f2f4f27.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
-.nav-logo-sub {
-  font-size: 8px; font-weight: 400; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--mortar);
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/d9db8a7a-bc43-4c9c-b7c3-37966a92a605.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
 }
-
-.nav-links {
-  display: flex; gap: 40px; list-style: none;
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/73f3fbbd-86ce-4624-b887-7a3e1dd40640.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-.nav-links a {
-  font-size: 10px; font-weight: 500; letter-spacing: 0.18em;
-  text-transform: uppercase; color: var(--text-mid);
-  text-decoration: none; transition: color 0.3s;
-  position: relative; padding-bottom: 2px;
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/9b8c4e38-a73f-4de3-9799-17bf1874c2bb.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-.nav-links a::after {
-  content: ''; position: absolute; bottom: -2px; left: 0;
-  width: 0; height: 0.5px; background: var(--brick);
-  transition: width 0.3s;
-}
-.nav-links a:hover { color: var(--brick); }
-.nav-links a:hover::after { width: 100%; }
-
-.nav-right { display: flex; align-items: center; gap: 24px; }
-
-.nav-phone {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px; font-weight: 300; color: var(--text);
-  text-decoration: none;
-}
-
-.nav-btn {
-  font-size: 9px; font-weight: 600; letter-spacing: 0.18em;
-  text-transform: uppercase; padding: 10px 24px;
-  background: var(--brick); color: var(--white);
-  text-decoration: none; transition: background 0.3s;
-  cursor: none;
-}
-.nav-btn:hover { background: #A04420; }
-
-/* HERO */
-.hero {
-  height: 100vh; min-height: 700px;
-  position: relative; overflow: hidden;
-}
-
-.hero-img {
-  position: absolute; inset: 0;
-  background: var(--oak);
-  background-image: url('images/img-1.jpg');
-  background-size: cover;
-  background-position: center center;
-  background-image: url('images/img-1.jpg');
-  background-size: cover; background-position: center center;
-}
-
-/* hero overlay */
-.hero-img::before {
-  content: '';
-  position: absolute; inset: 0;
-  background:
-    linear-gradient(180deg, rgba(20,12,6,0.45) 0%, rgba(20,12,6,0.1) 45%, rgba(20,12,6,0.65) 100%);
-  z-index: 1;
-}
-
-.hero-ph {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-  z-index: 0;
-}
-.hero-ph svg { width: 100%; height: 100%; }
-
-.hero-content {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 0 48px 64px;
-  z-index: 2;
-  display: grid; grid-template-columns: 1fr auto;
-  align-items: flex-end; gap: 48px;
-}
-
-.hero-eyebrow {
-  font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(245,239,230,0.7); font-weight: 400;
-  margin-bottom: 16px;
-  display: flex; align-items: center; gap: 14px;
-}
-.hero-eyebrow::before {
-  content: ''; width: 28px; height: 0.5px; background: var(--gold);
-}
-
-.hero-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(52px, 7vw, 100px);
-  font-weight: 300; line-height: 0.92;
-  letter-spacing: 0.02em; color: var(--white);
-  margin-bottom: 24px;
-}
-.hero-title em { font-style: italic; color: rgba(245,239,230,0.65); }
-
-.hero-desc {
-  font-size: 13px; font-weight: 300; color: rgba(245,239,230,0.7);
-  line-height: 1.7; max-width: 380px;
-}
-
-.hero-right {
-  display: flex; flex-direction: column; align-items: flex-end; gap: 32px;
-}
-
-.hero-stats {
-  display: flex; flex-direction: column; gap: 20px; text-align: right;
-}
-.hero-stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px; font-weight: 300; color: var(--white);
-  line-height: 1;
-}
-.hero-stat-label {
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(245,239,230,0.5); font-weight: 400; margin-top: 3px;
-}
-.hero-divider {
-  width: 1px; height: 80px;
-  background: linear-gradient(to bottom, transparent, rgba(245,239,230,0.2), transparent);
-  margin: 0 auto;
-}
-
-.hero-scroll {
-  position: absolute; bottom: 64px; left: 50%; transform: translateX(-50%);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  font-size: 8px; letter-spacing: 0.25em; text-transform: uppercase;
-  color: rgba(245,239,230,0.4); z-index: 2;
-  animation: scrollBounce 2s ease-in-out infinite;
-}
-.hero-scroll::after {
-  content: ''; width: 0.5px; height: 40px;
-  background: linear-gradient(to bottom, rgba(245,239,230,0.3), transparent);
-}
-
-@keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
-}
-
-/* INTRO STRIP */
-.intro-strip {
-  background: var(--white);
-  padding: 48px;
-  display: grid; grid-template-columns: 1fr 1fr 1fr 1fr;
-  border-bottom: 0.5px solid rgba(168,152,128,0.2);
-}
-.intro-item {
-  padding: 24px 32px;
-  border-right: 0.5px solid rgba(168,152,128,0.2);
-}
-.intro-item:last-child { border-right: none; }
-.intro-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 44px; font-weight: 300; color: var(--brick);
-  line-height: 1; margin-bottom: 6px;
-}
-.intro-label {
-  font-size: 10px; font-weight: 500; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--text); margin-bottom: 4px;
-}
-.intro-sub {
-  font-size: 11px; font-weight: 300; color: var(--text-light); line-height: 1.5;
-}
-
-/* SECTION COMMONS */
-.section-tag {
-  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: var(--brick); font-weight: 500; margin-bottom: 16px;
-  display: flex; align-items: center; gap: 12px;
-}
-.section-tag::before {
-  content: ''; width: 20px; height: 0.5px; background: var(--brick);
-}
-
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 60px);
-  font-weight: 300; line-height: 1.05;
-  color: var(--text); letter-spacing: 0.02em;
-}
-
-/* ABOUT */
-.about {
-  padding: 120px 48px;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 80px; align-items: start;
-  background: var(--white);
-}
-
-.about-text .section-title { margin-bottom: 32px; }
-
-.about-body {
-  font-size: 14px; font-weight: 300; line-height: 1.95;
-  color: var(--text-mid); margin-bottom: 16px;
-}
-
-.about-features {
-  margin-top: 40px;
-  display: flex; flex-direction: column; gap: 0;
-}
-.about-feature {
-  display: flex; align-items: flex-start; gap: 20px;
-  padding: 16px 0;
-  border-bottom: 0.5px solid rgba(168,152,128,0.15);
-}
-.about-feature:last-child { border-bottom: none; }
-.feature-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-weight: 400; color: var(--mortar);
-  min-width: 24px; line-height: 1.6;
-}
-.feature-text {
-  font-size: 13px; font-weight: 300; color: var(--text-mid);
-  line-height: 1.6;
-}
-
-/* about image */
-.about-visual {
-  position: relative;
-}
-
-.about-img-wrap {
-  width: 100%;
-  aspect-ratio: 4/5;
-  overflow: hidden; position: relative;
-  background: var(--limestone-2);
-  background-size: cover;
-  background-position: center;
-}
-
-.about-img-caption {
-  position: absolute; bottom: -1px; left: -40px;
-  background: var(--brick); color: var(--white);
-  padding: 24px 28px; width: 220px;
-}
-.about-img-caption strong {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px; font-weight: 300; display: block; line-height: 1;
-  margin-bottom: 6px;
-}
-.about-img-caption span {
-  font-size: 10px; font-weight: 300; opacity: 0.75; letter-spacing: 0.05em;
-  line-height: 1.5; display: block;
-}
-
-/* VISUALS GRID — твои рендеры */
-.visuals-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 500px 400px;
-  gap: 2px;
-  background: rgba(168,152,128,0.1);
-}
-
-.vg-cell-tall {
-  background-size: cover !important;
-  background-position: center 30% !important;
-}
-
-.vg-cell {
-  overflow: hidden; position: relative;
-  background: var(--limestone-2);
-  background-size: cover; background-position: center;
-  cursor: none;
-}
-.vg-cell:hover .vg-overlay { opacity: 1; }
-
-.vg-cell-tall { grid-row: span 2; }
-
-.vg-overlay {
-  position: absolute; inset: 0;
-  background: rgba(44,33,24,0.4);
-  display: flex; flex-direction: column;
-  justify-content: flex-end; padding: 28px;
-  opacity: 0; transition: opacity 0.4s;
-}
-.vg-label {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 300; color: var(--white);
-  letter-spacing: 0.03em;
-}
-.vg-sub {
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(245,239,230,0.6); margin-top: 4px;
-}
-
-/* PLACEHOLDER images using SVG patterns */
-.ph-night { background-color: #2C2118; }
-.ph-day { background-color: #D4C4A8; }
-.ph-balcony { background-color: #C8B898; }
-.ph-street { background-color: #BFB090; }
-.ph-facade { background-color: #C4A870; }
-
-/* SPECS SECTION */
-.specs-section {
-  background: var(--oak);
-  padding: 80px 48px;
-}
-.specs-eyebrow {
-  margin-bottom: 48px;
-}
-.specs-eyebrow .section-tag {
-  color: var(--gold);
-}
-.specs-eyebrow .section-tag::before { background: var(--gold); }
-
-.specs-grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 1px;
-  background: rgba(168,152,128,0.12);
-}
-.spec-item {
-  background: var(--oak);
-  padding: 40px 28px;
-  transition: background 0.3s;
-}
-.spec-item:hover { background: var(--oak-mid); }
-.spec-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px; font-weight: 300;
-  color: var(--white); line-height: 1;
-  margin-bottom: 10px; letter-spacing: -0.01em;
-}
-.spec-val span {
-  font-size: 24px; color: var(--gold);
-}
-.spec-icon {
-  font-size: 42px !important;
-  width: 56px; height: 56px;
-  border: 1px solid rgba(196,146,58,0.4);
-  border-radius: 50%;
-  display: flex !important;
-  align-items: center; justify-content: center;
-  color: var(--gold) !important;
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
   font-style: normal;
-  font-size: 22px !important;
-  margin-bottom: 14px;
-}
-.spec-label {
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--mortar);
-}
-
-/* SPACES (already exists, just add ref) */
-.spaces {
-  padding: 120px 48px;
-  background: var(--limestone);
-}
-
-.spaces-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 64px;
-}
-
-.spaces-link {
-  font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--brick);
-  text-decoration: none; display: flex; align-items: center; gap: 10px;
-  padding-bottom: 2px;
-  border-bottom: 0.5px solid var(--brick);
-  transition: gap 0.3s;
-}
-.spaces-link:hover { gap: 16px; }
-
-.spaces-tabs {
-  display: flex; gap: 0; margin-bottom: 40px;
-  border-bottom: 0.5px solid rgba(168,152,128,0.3);
-}
-.spaces-tab {
-  font-size: 10px; font-weight: 500; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--text-light);
-  padding: 12px 28px 16px; cursor: none;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -0.5px;
-  transition: all 0.3s; background: none; border-top: none; border-left: none; border-right: none;
-}
-.spaces-tab.active {
-  color: var(--brick);
-  border-bottom-color: var(--brick);
-}
-.spaces-tab:hover { color: var(--text); }
-
-.spaces-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
-  background: rgba(168,152,128,0.15);
-}
-
-.space-card {
-  background: var(--white); padding: 36px 28px;
-  transition: background 0.3s; cursor: none;
-  position: relative;
-}
-.space-card:hover { background: var(--limestone-2); }
-.space-card::after {
-  content: '↗'; position: absolute; top: 28px; right: 28px;
-  font-size: 16px; color: var(--mortar);
-  transition: all 0.3s;
-}
-.space-card:hover::after { color: var(--brick); transform: translate(3px, -3px); }
-
-.space-floor {
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--text-light); margin-bottom: 20px; font-weight: 500;
-}
-
-.space-type {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 26px; font-weight: 300; color: var(--text);
-  margin-bottom: 8px; line-height: 1.1;
-}
-
-.space-area {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 52px; font-weight: 300; color: var(--brick);
-  line-height: 1; margin-bottom: 16px;
-}
-.space-area sup { font-size: 20px; color: var(--mortar); vertical-align: super; }
-
-.space-desc {
-  font-size: 12px; font-weight: 300; color: var(--text-mid);
-  line-height: 1.7; margin-bottom: 24px;
-  padding-bottom: 24px; border-bottom: 0.5px solid rgba(168,152,128,0.2);
-}
-
-.space-price {
-  font-size: 11px; font-weight: 500; color: var(--text);
-  letter-spacing: 0.05em;
-}
-.space-yield {
-  font-size: 10px; font-weight: 300; color: var(--text-light);
-  margin-top: 4px; font-family: 'Cormorant Garamond', serif;
-  font-size: 14px; font-style: italic;
-}
-
-/* COURTYARD FULL */
-.courtyard-section {
-  min-height: 80vh; position: relative; overflow: hidden;
-  display: flex; align-items: center;
-}
-
-.courtyard-bg {
-  position: absolute; inset: 0;
-  background: var(--oak);
-  /* REPLACE: background-image: url('img/night-courtyard.jpg'); */
-  background-size: cover; background-position: center;
-}
-.courtyard-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, rgba(44,33,24,0.85) 40%, rgba(44,33,24,0.2) 100%);
-}
-
-.courtyard-content {
-  position: relative; z-index: 2;
-  padding: 100px 48px;
-  max-width: 580px;
-}
-
-.courtyard-content .section-tag {
-  color: var(--gold);
-}
-.courtyard-content .section-tag::before { background: var(--gold); }
-
-.courtyard-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(40px, 5vw, 68px);
-  font-weight: 300; line-height: 1.05;
-  color: var(--white); margin-bottom: 24px;
-  letter-spacing: 0.02em;
-}
-.courtyard-title em { font-style: italic; color: rgba(245,239,230,0.6); }
-
-.courtyard-body {
-  font-size: 14px; font-weight: 300; color: rgba(245,239,230,0.7);
-  line-height: 1.85; margin-bottom: 40px;
-}
-
-.courtyard-list {
-  list-style: none; display: flex; flex-direction: column; gap: 12px;
-}
-.courtyard-list li {
-  font-size: 12px; font-weight: 400; color: rgba(245,239,230,0.7);
-  display: flex; align-items: center; gap: 14px;
-}
-.courtyard-list li::before {
-  content: ''; width: 5px; height: 5px;
-  background: var(--gold); transform: rotate(45deg); flex-shrink: 0;
-}
-
-/* INVEST */
-.invest {
-  padding: 120px 48px;
-  background: var(--white);
-}
-
-.invest-layout {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 100px; align-items: start;
-}
-
-.invest-numbers {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
-  background: rgba(168,152,128,0.15);
-  margin-top: 48px;
-}
-.invest-card {
-  background: var(--white); padding: 36px 28px;
-}
-.invest-card-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 56px; font-weight: 300; color: var(--brick);
-  line-height: 1; margin-bottom: 6px;
-}
-.invest-card-num sup { font-size: 24px; color: var(--gold); vertical-align: super; }
-.invest-card-label {
-  font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
-  text-transform: uppercase; color: var(--text); margin-bottom: 6px;
-}
-.invest-card-desc {
-  font-size: 11px; font-weight: 300; color: var(--text-light); line-height: 1.6;
-}
-
-.invest-right { padding-top: 48px; }
-
-.invest-steps {
-  display: flex; flex-direction: column; gap: 0;
-}
-.invest-step {
-  display: flex; gap: 28px;
-  padding: 28px 0;
-  border-bottom: 0.5px solid rgba(168,152,128,0.15);
-}
-.invest-step:last-child { border-bottom: none; }
-.step-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 40px; font-weight: 300; color: rgba(168,152,128,0.3);
-  line-height: 1; min-width: 36px;
-}
-.step-title {
-  font-size: 12px; font-weight: 600; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text);
-  margin-bottom: 8px;
-}
-.step-desc {
-  font-size: 12px; font-weight: 300; color: var(--text-mid); line-height: 1.65;
-}
-
-.invest-cta {
-  margin-top: 40px;
-  padding: 28px 32px;
-  background: var(--limestone);
-  border-left: 2px solid var(--brick);
-}
-.invest-cta-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px; font-weight: 300; font-style: italic;
-  color: var(--text); margin-bottom: 16px; line-height: 1.3;
-}
-.invest-cta-btn {
-  display: inline-flex; align-items: center; gap: 12px;
-  font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; color: var(--brick);
-  text-decoration: none; cursor: none;
-  transition: gap 0.3s;
-}
-.invest-cta-btn:hover { gap: 20px; }
-.invest-cta-btn::after { content: '→'; font-size: 14px; }
-
-/* LOCATION */
-.location {
-  padding: 120px 48px;
-  background: var(--limestone);
-  display: grid; grid-template-columns: 1fr 1.2fr;
-  gap: 80px; align-items: center;
-}
-
-.location-title { margin-bottom: 24px; }
-
-.location-desc {
-  font-size: 13px; font-weight: 300; color: var(--text-mid);
-  line-height: 1.85; margin-bottom: 36px;
-}
-
-.location-points {
-  list-style: none; display: flex; flex-direction: column; gap: 0;
-}
-.location-points li {
-  font-size: 13px; font-weight: 300; color: var(--text-mid);
-  padding: 12px 0;
-  border-bottom: 0.5px solid rgba(168,152,128,0.2);
-  display: flex; align-items: center; gap: 16px;
-}
-.location-points li:last-child { border-bottom: none; }
-.location-points li::before {
-  content: ''; width: 20px; height: 0.5px;
-  background: var(--brick); flex-shrink: 0;
-}
-
-.map-box {
-  aspect-ratio: 5/4; background: var(--oak);
-  position: relative; overflow: hidden;
-}
-.map-box iframe {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-}
-.map-pin-overlay {
-  position: absolute; bottom: 24px; left: 24px;
-  display: flex; flex-direction: column; gap: 8px;
-  pointer-events: none;
-}
-.map-pin-label {
-  background: var(--brick);
-  color: var(--white);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  padding: 8px 16px;
-  display: inline-block;
-}
-.map-open-link {
-  font-size: 9px; font-weight: 500; letter-spacing: 0.15em;
-  text-transform: uppercase; color: var(--white);
-  background: rgba(44,33,24,0.7);
-  padding: 7px 14px;
-  text-decoration: none;
-  display: inline-block;
-  backdrop-filter: blur(4px);
-  pointer-events: all;
-  transition: background 0.3s;
-}
-.map-open-link:hover { background: rgba(139,58,26,0.85); }
-
-/* CTA SECTION */
-.cta-full {
-  padding: 0;
-  min-height: 600px;
-  display: grid; grid-template-columns: 1fr 1fr;
-}
-
-.cta-left {
-  background: var(--brick);
-  padding: 100px 64px;
-  display: flex; flex-direction: column; justify-content: center;
-  position: relative; overflow: hidden;
-}
-.cta-left::before {
-  content: 'M';
-  position: absolute; right: -40px; top: -40px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 400px; font-weight: 300;
-  color: rgba(255,255,255,0.04); line-height: 1;
-  pointer-events: none;
-}
-
-.cta-eyebrow {
-  font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase;
-  color: rgba(255,255,255,0.5); margin-bottom: 20px;
-}
-
-.cta-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 4vw, 56px); font-weight: 300;
-  color: var(--white); line-height: 1.05; margin-bottom: 16px;
-}
-.cta-title em { font-style: italic; color: rgba(255,255,255,0.6); }
-
-.cta-desc {
-  font-size: 13px; font-weight: 300; color: rgba(255,255,255,0.65);
-  line-height: 1.8;
-}
-
-.cta-right {
-  background: var(--limestone-2);
-  padding: 100px 64px;
-  display: flex; flex-direction: column; justify-content: center;
-}
-
-.cta-form { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
-
-.cta-input {
-  padding: 16px 20px;
-  background: var(--white);
-  border: 0.5px solid rgba(168,152,128,0.3);
-  font-family: 'Montserrat', sans-serif;
-  font-size: 13px; font-weight: 300; color: var(--text);
-  outline: none; transition: border-color 0.3s;
-}
-.cta-input::placeholder { color: var(--text-light); }
-.cta-input:focus { border-color: var(--brick); }
-
-.cta-submit {
-  padding: 16px 32px;
-  background: var(--oak); color: var(--white);
-  border: none; cursor: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
-  text-transform: uppercase; transition: background 0.3s;
-  align-self: flex-start;
-}
-.cta-submit:hover { background: var(--brick); }
-
-.cta-note {
-  font-size: 11px; font-weight: 300; color: var(--text-light); line-height: 1.6;
-}
-.cta-contacts {
-  margin-top: 32px; padding-top: 32px;
-  border-top: 0.5px solid rgba(168,152,128,0.3);
-  display: flex; flex-direction: column; gap: 14px;
-}
-.contact-row { display: flex; justify-content: space-between; align-items: baseline; }
-.contact-type {
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--text-light); font-weight: 500;
-}
-.contact-val {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px; font-weight: 300; color: var(--text);
-}
-
-/* FOOTER */
-footer {
-  background: var(--oak);
-  padding: 48px;
-  display: grid; grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-}
-.footer-logo {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px; font-weight: 300; letter-spacing: 0.2em;
-  color: rgba(245,239,230,0.5);
-}
-.footer-center {
-  font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(168,152,128,0.4); text-align: center;
-}
-.footer-right {
-  display: flex; gap: 32px; justify-content: flex-end;
-}
-.footer-right a {
-  font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
-  color: rgba(168,152,128,0.5); text-decoration: none; transition: color 0.3s;
-}
-.footer-right a:hover { color: var(--mortar-light); }
-
-/* ENTRANCE ANIMATIONS */
-.reveal {
-  opacity: 0; transform: translateY(24px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1; transform: translateY(0);
-}
-
-/* PLACEHOLDER SVGs for images */
-.img-ph {
-  width: 100%; height: 100%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 13px; font-weight: 300; letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-
-/* ARRANGEMENTS SECTION */
-.arrangements {
-  background: var(--limestone);
-  padding: 100px 48px;
-}
-
-.arr-header {
-  max-width: 640px;
-  margin-bottom: 60px;
-}
-
-.arr-header .section-title {
-  margin: 12px 0 20px;
-}
-
-.arr-intro {
-  font-size: 14px; font-weight: 300;
-  color: var(--text-mid); line-height: 1.85;
-}
-
-.arr-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2px;
-  background: rgba(168,152,128,0.15);
-}
-
-.arr-card {
-  background: var(--white);
-  display: flex; flex-direction: column;
-  overflow: hidden;
-  transition: transform 0.4s;
-  cursor: none;
-}
-
-.arr-card:hover { transform: translateY(-4px); }
-.arr-card:hover .arr-img { transform: scale(1.03); }
-
-.arr-img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s ease;
-  flex-shrink: 0;
-}
-
-.arr-card-featured .arr-img {
-  aspect-ratio: 1 / 1;
-}
-
-.arr-body {
-  padding: 28px 28px 32px;
-  display: flex; flex-direction: column;
-  gap: 10px; flex: 1;
-}
-
-.arr-tag {
-  font-size: 9px; font-weight: 600;
-  letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--brick);
-}
-
-.arr-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px; font-weight: 300;
-  color: var(--text); line-height: 1.05;
-}
-
-.arr-desc {
-  font-size: 12px; font-weight: 300;
-  color: var(--text-mid); line-height: 1.75;
-  flex: 1;
-}
-
-.arr-specs {
-  display: flex; gap: 16px;
-  padding-top: 16px;
-  border-top: 0.5px solid rgba(168,152,128,0.25);
-  margin-top: 4px;
-}
-
-.arr-specs span {
-  font-size: 11px; font-weight: 500;
-  color: var(--text); letter-spacing: 0.05em;
-}
-
-.arr-specs span:first-child {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px; font-weight: 400;
-}
-
-/* RESTAURANT CARD CROSSFADE */
-.arr-img-wrap {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.arr-img-wrap .arr-img {
-  position: absolute; inset: 0;
-  width: 100%; height: 100%;
-  aspect-ratio: unset;
-  transition: opacity 0.7s ease, transform 0.6s ease;
-}
-.arr-img-1 {
-  opacity: 1; z-index: 2;
-}
-.arr-img-2 {
-  opacity: 0; z-index: 1;
-}
-.arr-card-featured:hover .arr-img-1 { opacity: 0; }
-.arr-card-featured:hover .arr-img-2 { opacity: 1; }
-.arr-card-featured:hover .arr-img { transform: scale(1.03); }
-
-/* MANAGEMENT SECTION */
-.management {
-  background: var(--oak);
-  padding: 120px 48px;
-  display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 100px;
-  align-items: start;
-}
-
-.mgmt-left .section-tag {
-  color: var(--gold);
-}
-.mgmt-left .section-tag::before { background: var(--gold); }
-
-.mgmt-left .section-title {
-  color: var(--white);
-  margin: 16px 0 24px;
-}
-
-.mgmt-desc {
-  font-size: 14px; font-weight: 300;
-  color: rgba(245,239,230,0.65);
-  line-height: 1.85;
-}
-
-.mgmt-left .btn-primary {
-  background: var(--brick);
-  color: var(--white);
-  font-size: 10px; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  padding: 14px 32px;
-  border: none; cursor: none;
-  transition: background 0.3s;
-}
-.mgmt-left .btn-primary:hover { background: #A04420; }
-
-.mgmt-steps {
-  display: flex; flex-direction: column;
-  gap: 0;
-  margin-bottom: 48px;
-}
-
-.mgmt-step {
-  display: flex; gap: 28px;
-  padding: 28px 0;
-  border-bottom: 0.5px solid rgba(168,152,128,0.15);
-}
-.mgmt-step:first-child { padding-top: 0; }
-.mgmt-step:last-child { border-bottom: none; }
-
-.mgmt-step-icon {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px; font-weight: 300;
-  color: rgba(168,152,128,0.25);
-  line-height: 1; min-width: 36px;
-  flex-shrink: 0;
-}
-
-.mgmt-step-title {
-  font-size: 12px; font-weight: 600;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--white); margin-bottom: 8px;
-}
-
-.mgmt-step-text {
-  font-size: 12px; font-weight: 300;
-  color: rgba(245,239,230,0.55);
-  line-height: 1.7;
-}
-
-.mgmt-numbers {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: rgba(168,152,128,0.12);
-}
-
-.mgmt-num-item {
-  background: var(--oak);
-  padding: 28px 20px;
-}
-
-.mgmt-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 44px; font-weight: 300;
-  color: var(--brick-light, #B8532A);
-  line-height: 1; margin-bottom: 8px;
-}
-
-.mgmt-num span {
-  font-size: 22px; color: var(--gold);
-}
-
-.mgmt-num-label {
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--mortar);
-}
-
-
-
-
-.arr-card:last-child .arr-img {
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  background-position: center top !important;
-  background-color: var(--limestone-2) !important;
-  height: 500px;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/3caddb73-3340-4869-9813-fb2e88b4d0a8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/4ee84064-de14-4f54-84c0-ef796737e455.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/6ad837b0-1461-4870-9dd2-ba9a1af7cab7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/5e2553ae-4515-4894-ad06-aed8b6deb4ed.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/584a747c-3e43-40e3-8b8f-6dfe7eea5892.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/3caddb73-3340-4869-9813-fb2e88b4d0a8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/4ee84064-de14-4f54-84c0-ef796737e455.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/6ad837b0-1461-4870-9dd2-ba9a1af7cab7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/5e2553ae-4515-4894-ad06-aed8b6deb4ed.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/584a747c-3e43-40e3-8b8f-6dfe7eea5892.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/3caddb73-3340-4869-9813-fb2e88b4d0a8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/4ee84064-de14-4f54-84c0-ef796737e455.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/6ad837b0-1461-4870-9dd2-ba9a1af7cab7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/5e2553ae-4515-4894-ad06-aed8b6deb4ed.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/584a747c-3e43-40e3-8b8f-6dfe7eea5892.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/3caddb73-3340-4869-9813-fb2e88b4d0a8.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/4ee84064-de14-4f54-84c0-ef796737e455.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/6ad837b0-1461-4870-9dd2-ba9a1af7cab7.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/5e2553ae-4515-4894-ad06-aed8b6deb4ed.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/584a747c-3e43-40e3-8b8f-6dfe7eea5892.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/43f00505-1554-47fe-b291-3929b7a861b4.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/3fbb3017-df91-4836-9e38-b54d86f0bc51.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/579f16ec-b65d-495d-982f-1e8c9c4702f8.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/bafcdc1a-4637-4484-9445-cb1c77295f66.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("assets/d57277bc-73c8-434d-b6b5-d5941b4d289f.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/43f00505-1554-47fe-b291-3929b7a861b4.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/3fbb3017-df91-4836-9e38-b54d86f0bc51.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/579f16ec-b65d-495d-982f-1e8c9c4702f8.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/bafcdc1a-4637-4484-9445-cb1c77295f66.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("assets/d57277bc-73c8-434d-b6b5-d5941b4d289f.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/43f00505-1554-47fe-b291-3929b7a861b4.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/3fbb3017-df91-4836-9e38-b54d86f0bc51.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/579f16ec-b65d-495d-982f-1e8c9c4702f8.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/bafcdc1a-4637-4484-9445-cb1c77295f66.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("assets/d57277bc-73c8-434d-b6b5-d5941b4d289f.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/43f00505-1554-47fe-b291-3929b7a861b4.woff2") format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/3fbb3017-df91-4836-9e38-b54d86f0bc51.woff2") format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/579f16ec-b65d-495d-982f-1e8c9c4702f8.woff2") format('woff2');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/bafcdc1a-4637-4484-9445-cb1c77295f66.woff2") format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("assets/d57277bc-73c8-434d-b6b5-d5941b4d289f.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 </style>
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+html,body{margin:0;padding:0;background:#FDFAF6}
+body{font-family:'Montserrat',sans-serif;color:#1C1410;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:#8B3A1A;color:#FDFAF6}
+section[id]{scroll-margin-top:84px}
+/* nav */
+.site-nav{transition:height .45s cubic-bezier(.4,0,.2,1),background .45s,backdrop-filter .45s,border-color .45s}
+.site-nav.scrolled{height:62px!important;background:rgba(20,12,6,.85)!important;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom-color:rgba(245,239,230,.12)!important;box-shadow:0 10px 34px rgba(0,0,0,.22)}
+.nav-link{font-size:10px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(245,239,230,.96);text-shadow:0 1px 10px rgba(20,12,6,.5);text-decoration:none;position:relative;transition:color .3s}
+.nav-link::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:#C4923A;transition:right .4s cubic-bezier(.2,.7,.2,1)}
+.nav-link:hover{color:#fff}.nav-link:hover::after{right:0}
+.nav-cta{transition:background .3s,transform .3s,box-shadow .3s}
+.nav-cta:hover{background:#A8471F!important;transform:translateY(-1px);box-shadow:0 12px 26px -12px rgba(139,58,26,.7)}
+/* reveal / stagger */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.seen{opacity:1;transform:none}
+.stagger>*{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.2,.7,.2,1),transform .75s cubic-bezier(.2,.7,.2,1)}
+.stagger.seen>*{opacity:1;transform:none}
+.stagger.seen>*:nth-child(1){transition-delay:.05s}.stagger.seen>*:nth-child(2){transition-delay:.13s}
+.stagger.seen>*:nth-child(3){transition-delay:.21s}.stagger.seen>*:nth-child(4){transition-delay:.29s}
+.stagger.seen>*:nth-child(5){transition-delay:.37s}.stagger.seen>*:nth-child(6){transition-delay:.45s}
+.stagger.seen>*:nth-child(n+7){transition-delay:.5s}
+.accent-line{transform:scaleX(0);transform-origin:left center;transition:transform .9s cubic-bezier(.2,.7,.2,1) .2s}
+.seen .accent-line{transform:scaleX(1)}
+/* hero */
+.kenburns{animation:kenburns 20s ease-out forwards}
+@keyframes kenburns{from{transform:scale(1.04)}to{transform:scale(1.16)}}
+.hero-copy>*{opacity:0;transform:translateY(30px);animation:heroIn 1.1s cubic-bezier(.2,.7,.2,1) forwards}
+.hero-copy>*:nth-child(1){animation-delay:.2s}.hero-copy>*:nth-child(2){animation-delay:.36s}.hero-copy>*:nth-child(3){animation-delay:.52s}
+.hero-stats{opacity:0;transform:translateY(30px);animation:heroIn 1.1s cubic-bezier(.2,.7,.2,1) .68s forwards}
+@keyframes heroIn{to{opacity:1;transform:none}}
+@keyframes scrollBounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+.parallax-bg{transform:scale(1.16);will-change:transform}
+/* tabs */
+.tab{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:12px 28px 16px;cursor:pointer;background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-.5px;color:#9A8878;transition:color .3s,border-color .3s}
+.tab:hover{color:#5A4A38}.tab.is-active{color:#8B3A1A;border-bottom-color:#8B3A1A}
+/* space cards */
+.space-card{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s,opacity .35s}
+.space-card .arrow{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
+.space-card:hover{transform:translateY(-6px);box-shadow:0 26px 54px -26px rgba(44,33,24,.5);z-index:2}
+.space-card:hover .arrow{transform:translate(4px,-4px)}
+#spacesGrid{transition:opacity .25s}
+#spacesGrid.filtering .space-card{opacity:0;transform:translateY(8px)}
+/* format img zoom */
+.fmt-img{transition:transform 1.2s cubic-bezier(.2,.6,.2,1);will-change:transform}
+.fmt-card{overflow:hidden}.fmt-card:hover .fmt-img{transform:scale(1.07)}
+/* button / input hovers */
+a[style*="background:#8B3A1A"]:not(.nav-cta){transition:background .3s,transform .3s,box-shadow .3s}
+a[style*="background:#8B3A1A"]:not(.nav-cta):hover{background:#A8471F!important;transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(139,58,26,.6)}
+.cta-submit{transition:background .3s,transform .3s,box-shadow .3s}
+.cta-submit:hover{background:#8B3A1A!important;transform:translateY(-2px);box-shadow:0 16px 32px -14px rgba(44,33,24,.5)}
+input:focus{border-color:#8B3A1A!important;box-shadow:0 0 0 3px rgba(139,58,26,.08);outline:none}
+/* responsive */
+@media (max-width:860px){
+ .nav-links{display:none!important}
+ [style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+ [style*="grid-template-columns:1fr 1.4fr"],[style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr!important}
+ [style*="grid-template-columns:1fr auto"]{grid-template-columns:1fr!important}
+ [style*="grid-template-columns:repeat(3"]{grid-template-columns:1fr!important}
+ [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr 1fr!important}
+ [style*="grid-template-columns:1fr auto 1fr"]{gap:16px!important;text-align:center!important}
+ [style*="justify-content:space-between;align-items:flex-end"]{flex-direction:column!important;align-items:flex-start!important;gap:18px!important}
+ section[style*="gap:80px"],section[style*="gap:100px"],div[style*="gap:100px"]{gap:38px!important}
+ section[style*="padding:110px 48px"],section[style*="padding:120px 48px"],section[style*="padding:100px 48px"],div[style*="padding:100px 48px"]{padding:60px 22px!important}
+ div[style*="padding:100px 64px"]{padding:54px 26px!important}
+ div[style*="padding:0 48px 72px"]{padding:0 22px 44px!important}
+ nav[style*="padding:0 48px"]{padding:0 20px!important}
+ [style*="text-align:right;min-width:200px"]{text-align:left!important;min-width:0!important}
+ [style*="font-size:98px"]{font-size:50px!important}
+ [style*="font-size:64px"]{font-size:40px!important}
+ [style*="font-size:56px"]{font-size:36px!important}
+ [style*="font-size:54px"]{font-size:34px!important}
+ [style*="font-size:400px"]{font-size:170px!important}
+ section[style*="height:800px"]{height:90vh!important;min-height:560px!important}
+}
+@media (max-width:480px){
+ [style*="grid-template-columns:repeat(4"]{grid-template-columns:1fr!important}
+ [style*="font-size:98px"]{font-size:42px!important}
+ .tab{padding:12px 13px 14px!important;letter-spacing:.05em!important;font-size:9px!important}
+}
+@media (prefers-reduced-motion:reduce){
+ .reveal,.stagger>*,.hero-copy>*,.hero-stats{opacity:1!important;transform:none!important;animation:none!important;transition:none!important}
+ .kenburns,.parallax-bg{animation:none!important;transform:none!important}
+}</style>
+<noscript><style>.reveal,.stagger>*,.hero-copy>*,.hero-stats{opacity:1!important;transform:none!important;animation:none!important}</style></noscript>
 </head>
 <body>
 
-<!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#" class="nav-logo">
-    <span class="nav-logo-main">MASALSKI</span>
-    <span class="nav-logo-sub">Residences & Promenades</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">О проекте</a></li>
-    <li><a href="#arrangements">Возможности</a></li>
-    <li><a href="#spaces">Помещения</a></li>
-    <li><a href="#management">Управление</a></li>
-    <li><a href="#invest">Инвестиции</a></li>
-    <li><a href="#location">Локация</a></li>
-  </ul>
-  <div class="nav-right">
-      <a href="#contact" class="nav-btn">Получить презентацию</a>
+  <!-- NAV -->
+  <nav id="siteNav" class="site-nav" style="position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:84px;border-bottom:0.5px solid rgba(245,239,230,0.16);background:linear-gradient(180deg,rgba(20,12,6,0.6) 0%,rgba(20,12,6,0) 100%)">
+    <div style="display:flex;flex-direction:column;gap:3px">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;letter-spacing:0.22em;color:#FDFAF6;line-height:1">MASALSKI</span>
+      <span style="font-size:8px;font-weight:400;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,239,230,0.55)">Residences &amp; Promenades</span>
+    </div>
+    <div class="nav-links" style="display:flex;gap:34px">
+      <a href="#about" class="nav-link">О проекте</a>
+      <a href="#formats" class="nav-link">Возможности</a>
+      <a href="#spaces" class="nav-link">Помещения</a>
+      <a href="#management" class="nav-link">Управление</a>
+      <a href="#invest" class="nav-link">Инвестиции</a>
+      <a href="#location" class="nav-link">Локация</a>
+    </div>
+    <a href="#cta" class="nav-cta" style="font-size:9px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:11px 24px;background:#8B3A1A;color:#FDFAF6;text-decoration:none">Получить презентацию</a>
+  </nav>
+
+  <!-- HERO -->
+  <section style="position:relative;height:800px;overflow:hidden">
+    <div class="kenburns" style="position:absolute;inset:0;background:url(&quot;assets/hero.jpg&quot;) center/cover;background-color:#2C2118"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,12,6,0.55) 0%,rgba(20,12,6,0.12) 26%,rgba(20,12,6,0.42) 56%,rgba(20,12,6,0.88) 100%)"></div>
+    <div style="position:absolute;left:0;right:0;bottom:0;padding:0 48px 72px;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:flex-end;gap:48px">
+      <div class="hero-copy">
+        <div style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(245,239,230,0.95);margin-bottom:18px;display:flex;align-items:center;gap:14px;text-shadow:0 1px 14px rgba(20,12,6,0.6)"><span style="width:28px;height:0.5px;background:#C4923A"></span>Дом князей Масальских · Гродно</div>
+        <h1 style="font-family:'Cormorant Garamond',serif;font-size:98px;font-weight:300;line-height:0.92;letter-spacing:0.02em;color:#FDFAF6;margin:0 0 26px">Камень<br><em style="font-style:italic;color:rgba(245,239,230,0.62)">помнит.</em><br>Город живёт.</h1>
+        <p style="font-size:13px;font-weight:300;color:rgba(245,239,230,0.72);line-height:1.7;max-width:380px;margin:0">Коммерческие помещения и апартаменты в отреставрированном здании XVIII века</p>
+      </div>
+      <div class="hero-stats" style="display:flex;flex-direction:column;gap:18px;text-align:right;min-width:200px">
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#FDFAF6;line-height:1">8–12%</div><div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,239,230,0.82);margin-top:4px">Годовая доходность</div></div>
+        <div style="width:100%;height:0.5px;background:rgba(245,239,230,0.18)"></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#FDFAF6;line-height:1">12</div><div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,239,230,0.82);margin-top:4px">Помещений в продаже</div></div>
+        <div style="width:100%;height:0.5px;background:rgba(245,239,230,0.18)"></div>
+        <div><div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#FDFAF6;line-height:1">XVIII</div><div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(245,239,230,0.82);margin-top:4px">Век постройки</div></div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:60px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;font-size:8px;letter-spacing:0.25em;text-transform:uppercase;color:rgba(245,239,230,0.45);z-index:2;animation:scrollBounce 2s ease-in-out infinite">Скроллить<span style="width:0.5px;height:38px;background:linear-gradient(to bottom,rgba(245,239,230,0.3),transparent)"></span></div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <div class="stagger"v style="background:#FDFAF6;display:grid;grid-template-columns:repeat(4,1fr);border-bottom:0.5px solid rgba(168,152,128,0.2)">
+    <div style="padding:40px 36px;border-right:0.5px solid rgba(168,152,128,0.2)"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:8px">1700-е</div><div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:5px">Год постройки</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.5">Первая реставрация за 100 лет</div></div>
+    <div style="padding:40px 36px;border-right:0.5px solid rgba(168,152,128,0.2)"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:8px">1 200</div><div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:5px">$/м² вход</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.5">Цена на стадии реставрации</div></div>
+    <div style="padding:40px 36px;border-right:0.5px solid rgba(168,152,128,0.2)"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:8px">+40%</div><div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:5px">Рост турпотока</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.5">Гродно за последние 3 года</div></div>
+    <div style="padding:40px 36px"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:8px">365</div><div style="font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:5px">Дней трафика</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.5">Туристический центр города</div></div>
   </div>
-</nav>
 
-<!-- HERO — Image 1: ночной внутренний двор -->
-<section class="hero">
-  <div class="hero-img" style="background-image:url('images/img-1.jpg');background-size:cover;background-position:center center;">
-  </div>
-
-  <div class="hero-content">
+  
+  <section id="about" class="reveal" style="padding:110px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;background:#FDFAF6">
     <div>
-      <div class="hero-eyebrow">Дом князей Масальских · Гродно</div>
-      <h1 class="hero-title">
-        Камень<br>
-        <em>помнит.</em><br>
-        Город живёт.
-      </h1>
-      <p class="hero-desc">
-        Коммерческие помещения и апартаменты<br>
-        в отреставрированном здании XVIII века
-      </p>
+      <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>О проекте</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:#1C1410;letter-spacing:0.02em;margin:0 0 32px">Первая реставрация<br>за сто лет</h2>
+      <p style="font-size:14px;font-weight:300;line-height:1.95;color:#5A4A38;margin:0 0 16px">Дом князей Масальских — один из немногих уцелевших памятников аристократической архитектуры Гродно. После масштабной реставрации здание получит новую жизнь: бутики и рестораны на первом этаже, апартаменты для краткосрочной аренды на верхних.</p>
+      <p style="font-size:14px;font-weight:300;line-height:1.95;color:#5A4A38;margin:0">Открытая кирпичная кладка XVIII века, арочные своды, широкие окна и живой внутренний двор. Здесь каждый кирпич — подлинный. Здесь можно не просто прикоснуться к истории, но и стать её частью.</p>
+      <div class="stagger"v style="margin-top:40px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:16px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><span style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:#8B3A1A;min-width:32px;line-height:1.4">01</span><span style="font-size:14px;font-weight:300;color:#5A4A38;line-height:1.7">Открытый кирпич и арочные потолки — дань настоящей истории здания</span></div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:16px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><span style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:#8B3A1A;min-width:32px;line-height:1.4">02</span><span style="font-size:14px;font-weight:300;color:#5A4A38;line-height:1.7">Внутренний двор под террасы ресторанов — редкость в центре</span></div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:16px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><span style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:#8B3A1A;min-width:32px;line-height:1.4">03</span><span style="font-size:14px;font-weight:300;color:#5A4A38;line-height:1.7">Управление арендой под ключ — доход без вашего участия</span></div>
+        <div style="display:flex;align-items:flex-start;gap:20px;padding:16px 0"><span style="font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:#8B3A1A;min-width:32px;line-height:1.4">04</span><span style="font-size:14px;font-weight:300;color:#5A4A38;line-height:1.7">Ограниченное количество помещений — дефицитный актив</span></div>
+      </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">8–12%</div>
-          <div class="hero-stat-label">Годовая доходность</div>
+    <div style="position:relative">
+      <div class="fmt-img" style="width:100%;aspect-ratio:4/5;background:url(&quot;assets/about.webp&quot;) center/cover;background-color:#EDE4D8"></div>
+      <div style="position:absolute;bottom:0;left:28px;background:#8B3A1A;color:#FDFAF6;padding:24px 28px;width:220px"><strong style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;display:block;line-height:1;margin-bottom:6px">XVIII</strong><span style="font-size:10px;font-weight:300;opacity:0.78;letter-spacing:0.05em;line-height:1.5;display:block">Век постройки<br>дома Масальских</span></div>
+    </div>
+  </section>
+
+  <!-- COURTYARD -->
+  <section class="reveal" style="position:relative;min-height:640px;overflow:hidden;display:flex;align-items:center">
+    <div class="parallax-bg" style="position:absolute;inset:0;background:url(&quot;assets/dvor.jpg&quot;) center/cover;background-color:#2C2118"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(44,33,24,0.9) 36%,rgba(44,33,24,0.18) 100%)"></div>
+    <div style="position:relative;z-index:2;padding:100px 48px;max-width:600px">
+      <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#C4923A;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#C4923A"></span>Внутренний двор</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;line-height:1.05;color:#FDFAF6;margin:0 0 24px;letter-spacing:0.02em">Сердце<br><em style="font-style:italic;color:rgba(245,239,230,0.6)">Masalski</em></h2>
+      <p style="font-size:14px;font-weight:300;color:rgba(245,239,230,0.72);line-height:1.85;margin:0 0 40px;max-width:480px">Просторный замкнутый двор — редкость для исторического центра любого города. Рестораны первого этажа выходят на открытые террасы, а владельцы апартаментов получают приватное пространство в самом сердце города.</p>
+      <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px">
+        <li style="font-size:12px;font-weight:400;color:rgba(245,239,230,0.75);display:flex;align-items:center;gap:14px"><span style="width:5px;height:5px;background:#C4923A;transform:rotate(45deg);flex-shrink:0"></span>Летние террасы до 80 посадочных мест</li>
+        <li style="font-size:12px;font-weight:400;color:rgba(245,239,230,0.75);display:flex;align-items:center;gap:14px"><span style="width:5px;height:5px;background:#C4923A;transform:rotate(45deg);flex-shrink:0"></span>Приватное пространство без сквозного прохода</li>
+        <li style="font-size:12px;font-weight:400;color:rgba(245,239,230,0.75);display:flex;align-items:center;gap:14px"><span style="width:5px;height:5px;background:#C4923A;transform:rotate(45deg);flex-shrink:0"></span>Точка притяжения и главный аргумент доходности</li>
+      </ul>
+    </div>
+  </section>
+
+  
+  <section id="formats" class="reveal" style="background:#F5EFE6;padding:100px 48px">
+    <div style="max-width:640px;margin-bottom:60px">
+      <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>Возможности</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:#1C1410;letter-spacing:0.02em;margin:0 0 20px">Три формата.<br>Один адрес.</h2>
+      <p style="font-size:14px;font-weight:300;color:#5A4A38;line-height:1.85;margin:0">Первый этаж создан для бизнеса. Верхние этажи — для жизни и дохода. Каждое помещение можно адаптировать под свой формат.</p>
+    </div>
+    <div class="stagger"v style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;background:rgba(168,152,128,0.18)">
+      <div class="fmt-card" style="background:#FDFAF6;display:flex;flex-direction:column;overflow:hidden">
+        <div class="fmt-img" style="width:100%;aspect-ratio:4/5;background:url(&quot;assets/format-boutique.jpg&quot;) center/cover"></div>
+        <div style="padding:28px 28px 32px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#8B3A1A">Первый этаж</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1C1410;line-height:1.05">Бутик</div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.75;flex:1">Витринное пространство с высокими потолками и панорамными окнами на главную улицу. Идеально для fashion, beauty и lifestyle брендов.</div>
+          <div style="display:flex;gap:16px;padding-top:16px;border-top:0.5px solid rgba(168,152,128,0.25);margin-top:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;color:#1C1410">48–80 м²</span><span style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em;align-self:center">от $1 200/м²</span></div>
         </div>
-        <div class="hero-divider"></div>
-        <div>
-          <div class="hero-stat-num">12</div>
-          <div class="hero-stat-label">Помещений в продаже</div>
+      </div>
+      <div class="fmt-card" style="background:#FDFAF6;display:flex;flex-direction:column;overflow:hidden">
+        <div class="fmt-img" style="width:100%;aspect-ratio:4/5;background:url(&quot;assets/format-restaurant.jpg&quot;) center/cover"></div>
+        <div style="padding:28px 28px 32px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#8B3A1A">Первый этаж</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1C1410;line-height:1.05">Ресторан или кафе</div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.75;flex:1">Открытый кирпич XVIII века, арочные своды, выход во внутренний двор. Пространство с историей, которое само по себе является концепцией.</div>
+          <div style="display:flex;gap:16px;padding-top:16px;border-top:0.5px solid rgba(168,152,128,0.25);margin-top:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;color:#1C1410">65–120 м²</span><span style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em;align-self:center">от $1 200/м²</span></div>
         </div>
-        <div class="hero-divider"></div>
-        <div>
-          <div class="hero-stat-num">XVIII</div>
-          <div class="hero-stat-label">Век постройки</div>
-        </div>
       </div>
-    </div>
-  </div>
-
-  <div class="hero-scroll">Скроллить</div>
-</section>
-
-<!-- INTRO STRIP -->
-<div class="intro-strip">
-  <div class="intro-item">
-    <div class="intro-num">1700-е</div>
-    <div class="intro-label">Год постройки</div>
-    <div class="intro-sub">Первая реставрация за 100 лет</div>
-  </div>
-  <div class="intro-item">
-    <div class="intro-num">1 200</div>
-    <div class="intro-label">$/м² вход</div>
-    <div class="intro-sub">Цена на стадии реставрации</div>
-  </div>
-  <div class="intro-item">
-    <div class="intro-num">+40%</div>
-    <div class="intro-label">Рост турпотока</div>
-    <div class="intro-sub">Гродно за последние 3 года</div>
-  </div>
-  <div class="intro-item">
-    <div class="intro-num">365</div>
-    <div class="intro-label">Дней трафика</div>
-    <div class="intro-sub">Туристический центр города</div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-  <div class="about-text reveal">
-    <div class="section-tag">О проекте</div>
-    <h2 class="section-title">Первая реставрация<br>за сто лет</h2>
-    <p class="about-body">
-      Дом князей Масальских — один из немногих уцелевших памятников аристократической архитектуры Гродно. После масштабной реставрации здание получит новую жизнь: бутики и рестораны на первом этаже, апартаменты для краткосрочной аренды на верхних.
-    </p>
-    <p class="about-body">
-      Открытая кирпичная кладка XVIII века, арочные своды, широкие окна и живой внутренний двор. Здесь каждый кирпич — подлинный. Здесь можно не просто прикоснуться к истории, но и стать её частью.
-    </p>
-    <div class="about-features">
-      <div class="about-feature">
-        <span class="feature-num">01</span>
-        <span class="feature-text">Открытый кирпич и арочные потолки — дань настоящей истории здания</span>
-      </div>
-      <div class="about-feature">
-        <span class="feature-num">02</span>
-        <span class="feature-text">Внутренний двор под террасы ресторанов — редкость в центре</span>
-      </div>
-      <div class="about-feature">
-        <span class="feature-num">03</span>
-        <span class="feature-text">Управление арендой под ключ — доход без вашего участия</span>
-      </div>
-      <div class="about-feature">
-        <span class="feature-num">04</span>
-        <span class="feature-text">Ограниченное количество помещений — дефицитный актив</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="about-visual reveal">
-    <!-- Image 2: фасад днём -->
-    <div class="about-img-wrap" style="background-image:url('images/img-2.jpg');background-size:cover;background-position:center 20%;"></div>
-    <div class="about-img-caption">
-      <strong>XVIII</strong>
-      <span>Век постройки<br>дома Масальских</span>
-    </div>
-  </div>
-</section>
-
-
-
-
-<!-- COURTYARD — Image 1 ночной двор -->
-<section class="courtyard-section" id="courtyard">
-  <div class="courtyard-bg ph-night" style="background-image:url('images/img-3.webp');background-size:cover;background-position:center center;">
-  </div>
-  <div class="courtyard-content reveal">
-    <div class="section-tag">Внутренний двор</div>
-    <h2 class="courtyard-title">Сердце<br><em>Masalski</em></h2>
-    <p class="courtyard-body">
-      Просторный замкнутый двор — редкость для исторического центра любого города. Рестораны первого этажа выходят на открытые террасы, а владельцы апартаментов получают приватное пространство в самом сердце города.
-    </p>
-    <ul class="courtyard-list">
-      <li>Летние террасы до 80 посадочных мест</li>
-      <li>Приватное пространство без сквозного прохода</li>
-      <li>Точка притяжения и главный аргумент доходности</li>
-    </ul>
-  </div>
-</section>
-
-
-
-<!-- SPACES PREVIEW SECTION -->
-<section class="arrangements" id="arrangements">
-  <div class="arr-header">
-    <div class="section-tag">Возможности</div>
-    <h2 class="section-title">Три формата.<br>Один адрес.</h2>
-    <p class="arr-intro">Первый этаж создан для бизнеса. Верхние этажи — для жизни и дохода. Каждое помещение можно адаптировать под свой формат.</p>
-  </div>
-  <div class="arr-grid">
-
-    <div class="arr-card">
-      <div class="arr-img" style="background-image:url('images/img-4.jpg');background-size:cover;background-position:center;"></div>
-      <div class="arr-body">
-        <div class="arr-tag">Первый этаж</div>
-        <div class="arr-title">Бутик</div>
-        <div class="arr-desc">Витринное пространство с высокими потолками и панорамными окнами на главную улицу. Идеально для fashion, beauty и lifestyle брендов.</div>
-        <div class="arr-specs">
-          <span>48–80 м²</span>
-          <span>от $1 200/м²</span>
+      <div class="fmt-card" style="background:#FDFAF6;display:flex;flex-direction:column;overflow:hidden">
+        <div class="fmt-img" style="width:100%;aspect-ratio:4/5;background:url(&quot;assets/format-apartments.jpg&quot;) center/cover"></div>
+        <div style="padding:28px 28px 32px;display:flex;flex-direction:column;gap:10px;flex:1">
+          <div style="font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:#8B3A1A">2–4 этаж</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1C1410;line-height:1.05">Апартаменты</div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.75;flex:1">Премиальные апартаменты для краткосрочной аренды. Управление под ключ — вы просто получаете доход на счёт каждый месяц.</div>
+          <div style="display:flex;gap:16px;padding-top:16px;border-top:0.5px solid rgba(168,152,128,0.25);margin-top:4px"><span style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:400;color:#1C1410">32–58 м²</span><span style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em;align-self:center">8–12% годовых</span></div>
         </div>
       </div>
     </div>
-
-    <div class="arr-card arr-card-featured">
-      <div class="arr-img-wrap">
-        <div class="arr-img arr-img-1" style="background-image:url('images/img-5.jpg');background-size:cover;background-position:center;"></div>
-        <div class="arr-img arr-img-2" style="background-image:url('images/img-6.jpg');background-size:cover;background-position:center center;"></div>
+  </section>
+  
+  <section id="spaces" class="reveal" style="padding:110px 48px;background:#F5EFE6">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>Помещения</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:#1C1410;letter-spacing:0.02em;margin:0">Выберите своё<br>пространство</h2>
       </div>
-      <div class="arr-body">
-        <div class="arr-tag">Первый этаж</div>
-        <div class="arr-title">Ресторан<br>или кафе</div>
-        <div class="arr-desc">Открытый кирпич XVIII века, арочные своды, выход во внутренний двор. Пространство с историей, которое само по себе является концепцией.</div>
-        <div class="arr-specs">
-          <span>65–120 м²</span>
-          <span>от $1 200/м²</span>
-        </div>
-      </div>
+      <a style="font-size:10px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#8B3A1A;text-decoration:none;display:flex;align-items:center;gap:10px;padding-bottom:3px;border-bottom:0.5px solid #8B3A1A">Скачать все планировки →</a>
     </div>
-
-    <div class="arr-card">
-      <div class="arr-img" style="background-image:url('images/img-7.jpg');background-size:cover;background-position:center center;"></div>
-      <div class="arr-body">
-        <div class="arr-tag">2–4 этаж</div>
-        <div class="arr-title">Апартаменты</div>
-        <div class="arr-desc">Премиальные апартаменты для краткосрочной аренды. Управление под ключ — вы просто получаете доход на счёт каждый месяц.</div>
-        <div class="arr-specs">
-          <span>32–58 м²</span>
-          <span>8–12% годовых</span>
-        </div>
-      </div>
+    <div style="display:flex;gap:0;margin-bottom:40px;border-bottom:0.5px solid rgba(168,152,128,0.3)">
+      <button class="tab is-active" data-filter="all">Все</button>
+      <button class="tab" data-filter="commercial">Коммерция</button>
+      <button class="tab" data-filter="apartments">Апартаменты</button>
     </div>
+    <div id="spacesGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(168,152,128,0.18)">
+      <div class="space-card" data-type="commercial" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">1 этаж · Ресторан</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">Угловое с двором</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">120<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Выход на внутренний двор с летней террасой. Арочные потолки, открытый кирпич. Flagship-ресторан.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">Цена по запросу</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 10–12% / год</div>
+        </div>
+        <div class="space-card" data-type="commercial" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">1 этаж · Бутик</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">Витринное</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">48<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Панорамная витрина на улицу, высота потолков 4 м, историческая кирпичная кладка.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">от $1 200 / м²</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 8–10% / год</div>
+        </div>
+        <div class="space-card" data-type="commercial" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">1 этаж · Кафе</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">Угловое</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">65<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Два окна, вход с двух сторон. Возможность барной стойки у витрины и выхода во двор.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">от $1 200 / м²</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 9–11% / год</div>
+        </div>
+        <div class="space-card" data-type="apartments" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">2–4 этаж · Апартаменты</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">Студия</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">32<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Краткосрочная аренда туристам. Вид на двор или исторический центр. Управление под ключ.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">от $1 400 / м²</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 8–12% / год</div>
+        </div>
+        <div class="space-card" data-type="apartments" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">2–4 этаж · Апартаменты</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">1-комнатные</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">45<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Полная отделка под ключ. Управление арендой включено в стоимость обслуживания.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">от $1 350 / м²</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 8–11% / год</div>
+        </div>
+        <div class="space-card" data-type="apartments" style="background:#FDFAF6;padding:36px 28px;position:relative">
+          <div class="arrow" style="position:absolute;top:30px;right:28px;font-size:15px;color:#A89880">↗</div>
+          <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;margin-bottom:20px;font-weight:500">4 этаж · Апартаменты</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#1C1410;margin-bottom:10px;line-height:1.1">Мансарда</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:16px">58<span style="font-size:20px;color:#A89880;vertical-align:super;margin-left:2px">м²</span></div>
+          <div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:0.5px solid rgba(168,152,128,0.2)">Видовые слуховые окна, исторические деревянные балки, панорамный вид на крыши города.</div>
+          <div style="font-size:11px;font-weight:500;color:#1C1410;letter-spacing:0.05em">от $1 500 / м²</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:#9A8878;margin-top:4px">Доходность 10–13% / год</div>
+        </div>
+    </div>
+  </section>
 
-  </div>
-</section>
-
-
-<!-- SPACES -->
-<section class="spaces" id="spaces">
-  <div class="spaces-header reveal">
+  
+  <section id="management" class="reveal" style="background:#2C2118;padding:120px 48px;display:grid;grid-template-columns:1fr 1.4fr;gap:100px;align-items:start">
     <div>
-      <div class="section-tag">Помещения</div>
-      <h2 class="section-title">Выберите своё<br>пространство</h2>
+      <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#C4923A;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#C4923A"></span>Управление под ключ</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:#FDFAF6;letter-spacing:0.02em;margin:0 0 24px">Вы владеете.<br>Мы управляем.</h2>
+      <p style="font-size:14px;font-weight:300;color:rgba(245,239,230,0.65);line-height:1.85;margin:0 0 32px">После покупки помещения вам не нужно думать об аренде, уборке, заселении гостей и коммуникациях. Мы берём на себя всё — от маркетинга до ключей в руки гостя.</p>
+      <a style="display:inline-block;background:#8B3A1A;color:#FDFAF6;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:14px 32px;text-decoration:none">Узнать подробнее →</a>
     </div>
-    <a href="#contact" class="spaces-link">Скачать все планировки</a>
-  </div>
+    <div>
+      <div class="stagger"v style="display:flex;flex-direction:column;margin-bottom:48px">
+        <div style="display:flex;gap:28px;padding:0 0 28px;border-bottom:0.5px solid rgba(168,152,128,0.15)"><div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(168,152,128,0.28);line-height:1;min-width:36px">01</div><div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FDFAF6;margin-bottom:8px">Ремонт под ключ</div><div style="font-size:12px;font-weight:300;color:rgba(245,239,230,0.55);line-height:1.7">Полная отделка помещения перед сдачей: чистовые работы, меблировка, техника. Вы получаете готовый к аренде объект без дополнительных вложений.</div></div></div>
+        <div style="display:flex;gap:28px;padding:28px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(168,152,128,0.28);line-height:1;min-width:36px">02</div><div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FDFAF6;margin-bottom:8px">Размещение и маркетинг</div><div style="font-size:12px;font-weight:300;color:rgba(245,239,230,0.55);line-height:1.7">Ваш объект появляется на сервисах бронирования. Профессиональные фото, описание, динамическое ценообразование.</div></div></div>
+        <div style="display:flex;gap:28px;padding:28px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(168,152,128,0.28);line-height:1;min-width:36px">03</div><div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FDFAF6;margin-bottom:8px">Заселение и сервис</div><div style="font-size:12px;font-weight:300;color:rgba(245,239,230,0.55);line-height:1.7">Встреча гостей, выдача ключей, круглосуточная поддержка. Гость получает гостиничный сервис, вы — положительные отзывы и высокую загрузку.</div></div></div>
+        <div style="display:flex;gap:28px;padding:28px 0;border-bottom:0.5px solid rgba(168,152,128,0.15)"><div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(168,152,128,0.28);line-height:1;min-width:36px">04</div><div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FDFAF6;margin-bottom:8px">Уборка и обслуживание</div><div style="font-size:12px;font-weight:300;color:rgba(245,239,230,0.55);line-height:1.7">Профессиональный клининг после каждого гостя. Мелкий ремонт и техническое обслуживание — в рамках договора управления.</div></div></div>
+        <div style="display:flex;gap:28px;padding:28px 0 0"><div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:rgba(168,152,128,0.28);line-height:1;min-width:36px">05</div><div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#FDFAF6;margin-bottom:8px">Отчётность и выплаты</div><div style="font-size:12px;font-weight:300;color:rgba(245,239,230,0.55);line-height:1.7">Ежемесячный отчёт о загрузке и доходах в личном кабинете. Деньги поступают на ваш счёт автоматически.</div></div></div>
+      </div>
+      <div class="stagger"v style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(168,152,128,0.14)">
+        <div style="background:#2C2118;padding:28px 22px"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#B8532A;line-height:1;margin-bottom:8px">65<span style="font-size:22px;color:#C4923A">%</span></div><div style="font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#A89880">Средняя загрузка</div></div>
+        <div style="background:#2C2118;padding:28px 22px"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#B8532A;line-height:1;margin-bottom:8px">8–12<span style="font-size:22px;color:#C4923A">%</span></div><div style="font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#A89880">Годовая доходность</div></div>
+        <div style="background:#2C2118;padding:28px 22px"><div style="font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#B8532A;line-height:1;margin-bottom:8px">100<span style="font-size:22px;color:#C4923A">%</span></div><div style="font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#A89880">Без вашего участия</div></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="spaces-tabs">
-    <button class="spaces-tab active" onclick="filterSpaces('all', this)">Все</button>
-    <button class="spaces-tab" onclick="filterSpaces('commercial', this)">Коммерция</button>
-    <button class="spaces-tab" onclick="filterSpaces('apartments', this)">Апартаменты</button>
-  </div>
-
-  <div class="spaces-grid" id="spacesGrid">
-    <div class="space-card" data-type="commercial">
-      <div class="space-floor">1 этаж · Ресторан</div>
-      <div class="space-type">Угловое<br>с двором</div>
-      <div class="space-area">120 <sup>м²</sup></div>
-      <div class="space-desc">Выход на внутренний двор с летней террасой. Арочные потолки, открытый кирпич. Flagship-ресторан.</div>
-      <div class="space-price">Цена по запросу</div>
-      <div class="space-yield">Доходность 10–12% / год</div>
+  
+  <section id="invest" class="reveal" style="padding:120px 48px;background:#FDFAF6">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start;margin-bottom:80px">
+      <div>
+        <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>Инвестиции</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;line-height:1.05;color:#1C1410;letter-spacing:0.02em;margin:0">Исторический актив.<br>Современная<br>доходность.</h2>
+      </div>
+      <div class="stagger"v style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(168,152,128,0.18);align-self:end">
+        <div style="background:#FDFAF6;padding:32px 26px"><div style="font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:6px">8–12<sup style="font-size:22px;color:#C4923A;vertical-align:super">%</sup></div><div style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:6px">Доходность</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.6">Годовых от краткосрочной аренды туристам</div></div>
+        <div style="background:#FDFAF6;padding:32px 26px"><div style="font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:6px">+30<sup style="font-size:22px;color:#C4923A;vertical-align:super">%</sup></div><div style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:6px">Рост стоимости</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.6">После открытия — аналоги в регионе</div></div>
+        <div style="background:#FDFAF6;padding:32px 26px"><div style="font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:6px">6–8</div><div style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:6px">Лет окупаемость</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.6">При хорошей загрузке апартаментов</div></div>
+        <div style="background:#FDFAF6;padding:32px 26px"><div style="font-family:'Cormorant Garamond',serif;font-size:50px;font-weight:300;color:#8B3A1A;line-height:1;margin-bottom:6px">100<sup style="font-size:22px;color:#C4923A;vertical-align:super">%</sup></div><div style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#1C1410;margin-bottom:6px">Под ключ</div><div style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.6">Управление арендой без вашего участия</div></div>
+      </div>
     </div>
-    <div class="space-card" data-type="commercial">
-      <div class="space-floor">1 этаж · Бутик</div>
-      <div class="space-type">Витринное</div>
-      <div class="space-area">48 <sup>м²</sup></div>
-      <div class="space-desc">Панорамная витрина на улицу, высота потолков 4 м, историческая кирпичная кладка.</div>
-      <div class="space-price">от $1 200 / м²</div>
-      <div class="space-yield">Доходность 8–10% / год</div>
-    </div>
-    <div class="space-card" data-type="commercial">
-      <div class="space-floor">1 этаж · Кафе</div>
-      <div class="space-type">Угловое</div>
-      <div class="space-area">65 <sup>м²</sup></div>
-      <div class="space-desc">Два окна, вход с двух сторон. Возможность барной стойки у витрины и выхода во двор.</div>
-      <div class="space-price">от $1 200 / м²</div>
-      <div class="space-yield">Доходность 9–11% / год</div>
-    </div>
-    <div class="space-card" data-type="apartments">
-      <div class="space-floor">2–4 этаж · Апартаменты</div>
-      <div class="space-type">Студия</div>
-      <div class="space-area">32 <sup>м²</sup></div>
-      <div class="space-desc">Краткосрочная аренда туристам. Вид на двор или исторический центр. Управление под ключ.</div>
-      <div class="space-price">от $1 400 / м²</div>
-      <div class="space-yield">Доходность 8–12% / год</div>
-    </div>
-    <div class="space-card" data-type="apartments">
-      <div class="space-floor">2–4 этаж · Апартаменты</div>
-      <div class="space-type">1-комнатные</div>
-      <div class="space-area">45 <sup>м²</sup></div>
-      <div class="space-desc">Полная отделка под ключ. Управление арендой включено в стоимость обслуживания.</div>
-      <div class="space-price">от $1 350 / м²</div>
-      <div class="space-yield">Доходность 8–11% / год</div>
-    </div>
-    <div class="space-card" data-type="apartments">
-      <div class="space-floor">4 этаж · Апартаменты</div>
-      <div class="space-type">Мансарда</div>
-      <div class="space-area">58 <sup>м²</sup></div>
-      <div class="space-desc">Видовые слуховые окна, исторические деревянные балки, панорамный вид на крыши города.</div>
-      <div class="space-price">от $1 500 / м²</div>
-      <div class="space-yield">Доходность 10–13% / год</div>
-    </div>
-  </div>
-</section>
-
-
-<!-- MANAGEMENT SECTION -->
-<section class="management" id="management">
-  <div class="mgmt-left">
-    <div class="section-tag">Управление под ключ</div>
-    <h2 class="section-title">Вы владеете.<br>Мы управляем.</h2>
-    <p class="mgmt-desc">
-      После покупки помещения вам не нужно думать об аренде, уборке, заселении гостей и коммуникациях. Мы берём на себя всё — от маркетинга до ключей в руки гостя.
-    </p>
-    <a href="#contact" class="btn-primary" style="display:inline-flex;align-items:center;gap:12px;margin-top:32px;text-decoration:none;">
-      Узнать подробнее →
-    </a>
-  </div>
-  <div class="mgmt-right">
-    <div class="mgmt-steps">
-
-      <div class="mgmt-step">
-        <div class="mgmt-step-icon">01</div>
-        <div class="mgmt-step-body">
-          <div class="mgmt-step-title">Ремонт под ключ</div>
-          <div class="mgmt-step-text">Полная отделка помещения перед сдачей: чистовые работы, меблировка, техника. Вы получаете готовый к аренде объект без дополнительных вложений.</div>
+    <div style="padding-top:56px;border-top:0.5px solid rgba(168,152,128,0.25)">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px">
+        <div>
+          <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>Как это работает</div>
+          <h3 style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#1C1410;margin:0;line-height:1.1">Четыре шага до первого дохода</h3>
         </div>
+        <a style="display:inline-block;background:#8B3A1A;color:#FDFAF6;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;padding:14px 32px;text-decoration:none;white-space:nowrap">Запросить расчёт →</a>
       </div>
-
-      <div class="mgmt-step">
-        <div class="mgmt-step-icon">02</div>
-        <div class="mgmt-step-body">
-          <div class="mgmt-step-title">Размещение и маркетинг</div>
-          <div class="mgmt-step-text">Ваш объект появляется на сервисах бронирования. Профессиональные фото, описание, динамическое ценообразование.</div>
-        </div>
-      </div>
-
-      <div class="mgmt-step">
-        <div class="mgmt-step-icon">03</div>
-        <div class="mgmt-step-body">
-          <div class="mgmt-step-title">Заселение и сервис</div>
-          <div class="mgmt-step-text">Встреча гостей, выдача ключей, круглосуточная поддержка. Гость получает гостиничный сервис, вы — положительные отзывы и высокую загрузку.</div>
-        </div>
-      </div>
-
-      <div class="mgmt-step">
-        <div class="mgmt-step-icon">04</div>
-        <div class="mgmt-step-body">
-          <div class="mgmt-step-title">Уборка и обслуживание</div>
-          <div class="mgmt-step-text">Профессиональный клининг после каждого гостя. Мелкий ремонт и техническое обслуживание — в рамках договора управления.</div>
-        </div>
-      </div>
-
-      <div class="mgmt-step">
-        <div class="mgmt-step-icon">05</div>
-        <div class="mgmt-step-body">
-          <div class="mgmt-step-title">Отчётность и выплаты</div>
-          <div class="mgmt-step-text">Ежемесячный отчёт о загрузке и доходах в личном кабинете. Деньги поступают на ваш счёт автоматически.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="mgmt-numbers">
-      <div class="mgmt-num-item">
-        <div class="mgmt-num">65<span>%</span></div>
-        <div class="mgmt-num-label">Средняя загрузка</div>
-      </div>
-      <div class="mgmt-num-item">
-        <div class="mgmt-num">8–12<span>%</span></div>
-        <div class="mgmt-num-label">Годовая доходность</div>
-      </div>
-      <div class="mgmt-num-item">
-        <div class="mgmt-num">100<span>%</span></div>
-        <div class="mgmt-num-label">Без вашего участия</div>
+      <div class="stagger"v style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(168,152,128,0.2)">
+        <div style="background:#FDFAF6;padding:32px 28px 28px;border-top:2px solid #8B3A1A"><div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:rgba(168,152,128,0.4);line-height:1;margin-bottom:18px">1</div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1C1410;margin-bottom:8px">Бронирование</div><div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.65">Фиксируете помещение и цену. Залог 10% — цена зафиксирована.</div></div>
+        <div style="background:#FDFAF6;padding:32px 28px 28px;border-top:2px solid rgba(139,58,26,0.35)"><div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:rgba(168,152,128,0.4);line-height:1;margin-bottom:18px">2</div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1C1410;margin-bottom:8px">Договор</div><div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.65">Подписание купли-продажи. Оплата поэтапно по ходу реставрации.</div></div>
+        <div style="background:#FDFAF6;padding:32px 28px 28px;border-top:2px solid rgba(139,58,26,0.35)"><div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:rgba(168,152,128,0.4);line-height:1;margin-bottom:18px">3</div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1C1410;margin-bottom:8px">Передача</div><div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.65">Получаете ключи и документы о праве собственности.</div></div>
+        <div style="background:#FDFAF6;padding:32px 28px 28px;border-top:2px solid rgba(139,58,26,0.35)"><div style="font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:300;color:rgba(168,152,128,0.4);line-height:1;margin-bottom:18px">4</div><div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#1C1410;margin-bottom:8px">Доход</div><div style="font-size:12px;font-weight:300;color:#5A4A38;line-height:1.65">Помещение работает на вас. Деньги поступают на счёт ежемесячно.</div></div>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
-
-
-<!-- INVEST -->
-<section class="invest" id="invest">
-  <div class="invest-layout">
-    <div class="reveal">
-      <div class="section-tag">Инвестиции</div>
-      <h2 class="section-title">Исторический актив.<br>Современная<br>доходность.</h2>
-      <div class="invest-numbers">
-        <div class="invest-card">
-          <div class="invest-card-num">8–12<sup>%</sup></div>
-          <div class="invest-card-label">Доходность</div>
-          <div class="invest-card-desc">Годовых от краткосрочной аренды туристам</div>
-        </div>
-        <div class="invest-card">
-          <div class="invest-card-num">+30<sup>%</sup></div>
-          <div class="invest-card-label">Рост стоимости</div>
-          <div class="invest-card-desc">После открытия — аналоги в регионе</div>
-        </div>
-        <div class="invest-card">
-          <div class="invest-card-num">6–8</div>
-          <div class="invest-card-label">Лет окупаемость</div>
-          <div class="invest-card-desc">При хорошей загрузке апартаментов</div>
-        </div>
-        <div class="invest-card">
-          <div class="invest-card-num">100<sup>%</sup></div>
-          <div class="invest-card-label">Под ключ</div>
-          <div class="invest-card-desc">Управление арендой без вашего участия</div>
-        </div>
+  
+  <section id="location" class="reveal" style="padding:120px 48px;background:#F5EFE6;display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:center">
+    <div>
+      <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#8B3A1A;font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:12px"><span class="accent-line" style="width:20px;height:0.5px;background:#8B3A1A"></span>Локация</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;line-height:1.05;color:#1C1410;letter-spacing:0.02em;margin:0 0 24px">Самое живое место<br>исторического<br>Гродно</h2>
+      <p style="font-size:13px;font-weight:300;color:#5A4A38;line-height:1.85;margin:0 0 36px">Центр Гродно — живая туристическая артерия с постоянным потоком гостей из Беларуси, России, Польши и других стран мира. Дом Масальских стоит в самом сердце этого потока.</p>
+      <ul  class="stagger" style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column">
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;border-bottom:0.5px solid rgba(168,152,128,0.2);display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>5 минут пешком от Замковой горы</li>
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;border-bottom:0.5px solid rgba(168,152,128,0.2);display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>Главная пешеходная улица города — рядом</li>
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;border-bottom:0.5px solid rgba(168,152,128,0.2);display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>Фарный костёл — 3 минуты</li>
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;border-bottom:0.5px solid rgba(168,152,128,0.2);display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>До польской границы — 25 км</li>
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;border-bottom:0.5px solid rgba(168,152,128,0.2);display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>Туристический трафик 365 дней в году</li>
+        <li style="font-size:13px;font-weight:300;color:#5A4A38;padding:12px 0;display:flex;align-items:center;gap:16px"><span style="width:20px;height:0.5px;background:#8B3A1A;flex-shrink:0"></span>Вскоре прямое авиасообщение Москва — Гродно</li>
+      </ul>
+      <a href="https://maps.app.goo.gl/" target="_blank" style="font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:#8B3A1A;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:0.5px solid #8B3A1A;padding-bottom:3px">Открыть в Google Maps ↗</a>
+    </div>
+    <div style="aspect-ratio:5/4;background:#2C2118;position:relative;overflow:hidden">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.8!2d23.8350!3d53.6780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dfd7e694af31b7%3A0x8f10a0af93d7e502!2z0LTQstC-0YDQtdGGINC80LDRgdCw0LvRjNGB0LrQuNGFINCz0YDQvtC00L3QviDQt9Cw0LzQutC-0LLQsNGP!5e0!3m2!1sru!2sby!4v1700000000000" style="position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(20%) contrast(1.05)" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div style="position:absolute;bottom:24px;left:24px;display:flex;flex-direction:column;gap:8px;align-items:flex-start">
+        <span style="background:#8B3A1A;color:#FDFAF6;font-size:9px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;padding:8px 16px">MASALSKI</span>
+        <a href="https://maps.app.goo.gl/" target="_blank" style="font-size:9px;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;color:#FDFAF6;background:rgba(44,33,24,0.72);padding:7px 14px;text-decoration:none;backdrop-filter:blur(4px)">Открыть в Google Maps ↗</a>
       </div>
     </div>
+  </section>
 
-    <div class="invest-right reveal">
-      <div class="section-tag">Как это работает</div>
-      <h3 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--text);margin-bottom:8px;line-height:1.1;">Четыре шага<br>до первого дохода</h3>
-      <div class="invest-steps">
-        <div class="invest-step">
-          <div class="step-num">1</div>
-          <div>
-            <div class="step-title">Бронирование</div>
-            <div class="step-desc">Фиксируете помещение и цену. Залог 10% — цена зафиксирована.</div>
-          </div>
-        </div>
-        <div class="invest-step">
-          <div class="step-num">2</div>
-          <div>
-            <div class="step-title">Договор</div>
-            <div class="step-desc">Подписание купли-продажи. Оплата поэтапно по ходу реставрации.</div>
-          </div>
-        </div>
-        <div class="invest-step">
-          <div class="step-num">3</div>
-          <div>
-            <div class="step-title">Передача</div>
-            <div class="step-desc">Получаете ключи и документы о праве собственности.</div>
-          </div>
-        </div>
-        <div class="invest-step">
-          <div class="step-num">4</div>
-          <div>
-            <div class="step-title">Доход</div>
-            <div class="step-desc">Помещение работает на вас. Деньги поступают на ваш счёт ежемесячно.</div>
-          </div>
-        </div>
-      </div>
-      <div class="invest-cta">
-        <div class="invest-cta-text">Получите полный инвестиционный расчёт для выбранного помещения</div>
-        <a href="#contact" class="invest-cta-btn">Запросить расчёт</a>
+  
+  <section id="cta" class="reveal" style="display:grid;grid-template-columns:1fr 1fr;min-height:600px">
+    <div style="background:#8B3A1A;padding:100px 64px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden">
+      <div style="position:absolute;right:-40px;top:-60px;font-family:'Cormorant Garamond',serif;font-size:400px;font-weight:300;color:rgba(255,255,255,0.05);line-height:1;pointer-events:none">M</div>
+      <div style="position:relative">
+        <div style="font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:20px">Получить информацию</div>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:300;color:#FDFAF6;line-height:1.05;margin:0 0 16px">Оставьте контакт —<br><em style="font-style:italic;color:rgba(255,255,255,0.6)">отправим всё.</em></h2>
+        <p style="font-size:13px;font-weight:300;color:rgba(255,255,255,0.68);line-height:1.8;margin:0;max-width:380px">Полный каталог помещений, планировки, инвестиционный расчёт и условия покупки — в одном файле.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- LOCATION -->
-<section class="location" id="location">
-  <div class="reveal">
-    <div class="section-tag">Локация</div>
-    <h2 class="section-title location-title">Самое живое место<br>исторического<br>Гродно</h2>
-    <p class="location-desc">
-      Центр Гродно — живая туристическая артерия с постоянным потоком гостей из Беларуси, России, Польши и других стран мира. Дом Масальских стоит в самом сердце этого потока.
-    </p>
-    <ul class="location-points">
-      <li>5 минут пешком от Замковой горы</li>
-      <li>Главная пешеходная улица города — в шаговой доступности</li>
-      <li>Фарный костёл — 3 минуты</li>
-      <li>До польской границы — 25 км</li>
-      <li>Туристический трафик 365 дней в году</li>
-      <li>Вскоре прямое авиасообщение Москва — Гродно</li>
-    </ul>
-  </div>
-
-  <div class="map-box reveal">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2355.8!2d23.8350!3d53.6780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dfd7e694af31b7%3A0x8f10a0af93d7e502!2z0LTQstC-0YDQtdGGINC80LDRgdCw0LvRjNGB0LrQuNGFINCz0YDQvtC00L3QviDQt9Cw0LzQutC-0LLQsNGP!5e0!3m2!1sru!2sby!4v1700000000000"
-      width="100%"
-      height="100%"
-      style="border:0; display:block; filter: grayscale(20%) contrast(1.05);"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <div class="map-pin-overlay">
-      <div class="map-pin-label">MASALSKI</div>
-      <a href="https://maps.app.goo.gl/masalski" target="_blank" class="map-open-link">Открыть в Google Maps ↗</a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-full" id="contact">
-  <div class="cta-left">
-    <div class="cta-eyebrow">Получить информацию</div>
-    <h2 class="cta-title">Оставьте контакт —<br><em>отправим всё.</em></h2>
-    <p class="cta-desc">
-      Полный каталог помещений, планировки, инвестиционный расчёт и условия покупки — в одном файле.
-    </p>
-  </div>
-  <div class="cta-right">
-    <div class="cta-form">
-      <input type="text" class="cta-input" placeholder="Ваше имя">
-      <input type="tel" class="cta-input" placeholder="Телефон / WhatsApp (+375, +7)">
-      <input type="text" class="cta-input" placeholder="Откуда вы? (Минск, Москва, Питер...)">
-    </div>
-    <button class="cta-submit">Получить презентацию →</button>
-    <p class="cta-note" style="margin-top:16px;">Или напишите напрямую: <strong>masalski@grodno.by</strong></p>
-    <div class="cta-contacts">
-      <div class="contact-row">
-        <span class="contact-type">Телефон / WhatsApp</span>
-        <span class="contact-val">+375 29 000-00-00</span>
+    <div style="background:#EDE4D8;padding:100px 64px;display:flex;flex-direction:column;justify-content:center">
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px">
+        <input type="text" placeholder="Ваше имя" style="padding:16px 20px;background:#FDFAF6;border:0.5px solid rgba(168,152,128,0.3);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;color:#1C1410;outline:none">
+        <input type="tel" placeholder="Телефон / WhatsApp (+375, +7)" style="padding:16px 20px;background:#FDFAF6;border:0.5px solid rgba(168,152,128,0.3);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;color:#1C1410;outline:none">
+        <input type="text" placeholder="Откуда вы? (Минск, Москва, Питер...)" style="padding:16px 20px;background:#FDFAF6;border:0.5px solid rgba(168,152,128,0.3);font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;color:#1C1410;outline:none">
       </div>
-      <div class="contact-row">
-        <span class="contact-type">Instagram</span>
-        <span class="contact-val">@masalski.grodno</span>
-      </div>
-      <div class="contact-row">
-        <span class="contact-type">Адрес</span>
-        <span class="contact-val">Замковая 5, Гродно</span>
+      <button id="ctaBtn" class="cta-submit" style="padding:16px 32px;background:#2C2118;color:#FDFAF6;border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;align-self:flex-start">Получить презентацию →</button>
+      <p style="font-size:11px;font-weight:300;color:#9A8878;line-height:1.6;margin:16px 0 0">Или напишите напрямую: <strong style="color:#5A4A38">masalski@grodno.by</strong></p>
+      <div style="margin-top:32px;padding-top:32px;border-top:0.5px solid rgba(168,152,128,0.3);display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;font-weight:500">Телефон / WhatsApp</span><span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#1C1410">+375 29 000-00-00</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;font-weight:500">Instagram</span><span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#1C1410">@masalski.grodno</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#9A8878;font-weight:500">Адрес</span><span style="font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:#1C1410">Замковая 5, Гродно</span></div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">MASALSKI</div>
-  <div class="footer-center">Гродно · Беларусь · 2025</div>
-  <div class="footer-right">
-    <a href="#">Политика конфиденциальности</a>
-    <a href="#">Instagram</a>
-  </div>
-</footer>
+  <!-- FOOTER -->
+  <footer class="reveal" style="background:#2C2118;padding:48px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center">
+    <div style="font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;letter-spacing:0.2em;color:rgba(245,239,230,0.5)">MASALSKI</div>
+    <div style="font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(168,152,128,0.45);text-align:center">Гродно · Беларусь · 2025</div>
+    <div style="display:flex;gap:32px;justify-content:flex-end"><a style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(168,152,128,0.55);text-decoration:none">Политика конфиденциальности</a><a style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(168,152,128,0.55);text-decoration:none">Instagram</a></div>
+  </footer>
 
-<script>
-// Cursor
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  setTimeout(() => {
-    ring.style.left = e.clientX + 'px';
-    ring.style.top = e.clientY + 'px';
-  }, 80);
-});
-document.querySelectorAll('a, button, .space-card, .vg-cell').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-    ring.style.width = '48px'; ring.style.height = '48px';
-  });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-    ring.style.width = '32px'; ring.style.height = '32px';
-  });
-});
-
-// Scroll reveal
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 100);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-// Nav scroll
-window.addEventListener('scroll', () => {
-  const nav = document.getElementById('nav');
-  nav.style.background = window.scrollY > 60
-    ? 'rgba(253,250,246,0.97)'
-    : 'rgba(253,250,246,0.92)';
-});
-
-// Spaces filter
-function filterSpaces(type, btn) {
-  document.querySelectorAll('.spaces-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  document.querySelectorAll('.space-card').forEach(card => {
-    card.style.display = (type === 'all' || card.dataset.type === type) ? 'block' : 'none';
-  });
-}
-</script>
-
+<script>(function(){
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -7% 0px'});
+ document.querySelectorAll('.reveal,.stagger').forEach(function(el){io.observe(el);});
+ var nav=document.getElementById('siteNav');var pbg=document.querySelectorAll('.parallax-bg');
+ function onScroll(){
+  if(nav)nav.classList.toggle('scrolled',window.scrollY>60);
+  for(var i=0;i<pbg.length;i++){var el=pbg[i];var r=el.parentElement.getBoundingClientRect();var off=r.top*-0.08;el.style.transform='translate3d(0,'+off.toFixed(1)+'px,0) scale(1.16)';}
+ }
+ window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll,{passive:true});onScroll();
+ var grid=document.getElementById('spacesGrid');var tabs=document.querySelectorAll('.tab');
+ tabs.forEach(function(t){t.addEventListener('click',function(){
+  tabs.forEach(function(x){x.classList.remove('is-active');});t.classList.add('is-active');
+  var f=t.getAttribute('data-filter');if(!grid)return;grid.classList.add('filtering');
+  setTimeout(function(){grid.querySelectorAll('.space-card').forEach(function(c){var s=(f==='all'||c.getAttribute('data-type')===f);c.style.display=s?'':'none';});requestAnimationFrame(function(){grid.classList.remove('filtering');});},220);
+ });});
+ var btn=document.getElementById('ctaBtn');
+ if(btn)btn.addEventListener('click',function(e){e.preventDefault();var ok=true;document.querySelectorAll('input').forEach(function(inp){if(!inp.value){inp.style.borderColor='#8B3A1A';ok=false;}});if(!ok)return;btn.textContent='Спасибо! Свяжемся в ближайшее время';btn.style.background='#2C5E3A';});
+})();</script>
 </body>
 </html>
